@@ -67,3 +67,4 @@ code = "function foo(bar, baz) { return bar + baz; } // Example function"
 puts "Code-like text: #{code}"
 puts "Wrapped to 20 columns:"
 puts Cellwrap.wrap(code, 20)
+

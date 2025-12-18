@@ -14,6 +14,14 @@ Style/UnlessElse:
 Metrics/CyclomaticComplexity:
   Enabled: false
 
+Lint/Formatting:
+  Excluded:
+    - "examples/*.cr"
+
+Layout/TrailingBlankLines:
+  Excluded:
+    - "examples/*.cr"
+
 # Customize rule parameters
 Layout/EndOfLine:
   EnforcedStyle: lf
@@ -26,6 +34,7 @@ Performance/FlattenOnce:
 
 # Exclude files/directories
 exclude:
-  - lib/
-  - .beads/
-  - .github/
+  - "lib/"
+  - ".beads/"
+  - ".github/"
+  - "examples/"

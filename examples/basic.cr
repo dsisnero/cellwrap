@@ -31,3 +31,4 @@ puts
 puts "=== Preserving Newlines ==="
 puts "Text with existing newlines:"
 puts Cellwrap.wrap("First line\nSecond line\nThird line", 20)
+

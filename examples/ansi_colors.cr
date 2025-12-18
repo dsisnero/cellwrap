@@ -38,3 +38,4 @@ complex = "\e[1;3;4;38;5;208mBold, italic, underlined orange\e[0m text"
 puts "Complex styling: #{complex}"
 puts "Wrapped to 20 columns:"
 puts Cellwrap.wrap(complex, 20)
+

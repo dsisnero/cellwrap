@@ -63,3 +63,4 @@ thai = "สวัสดีครับ (Hello in Thai)"
 puts "Thai text: #{thai}"
 puts "Wrapped to 12 columns:"
 puts Cellwrap.wrap(thai, 12)
+
