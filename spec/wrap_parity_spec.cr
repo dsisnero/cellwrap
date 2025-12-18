@@ -107,9 +107,9 @@ describe Cellwrap do
     },
   ]
 
-  cases.each do |tc|
-    it "wraps like cellbuf.Wrap: #{tc[:name]}" do
-      Cellwrap.wrap(tc[:input].as(String), tc[:width].as(Int32), "").should eq(tc[:expected])
+  cases.each do |test_case|
+    it "wraps like cellbuf.Wrap: #{test_case[:name]}" do
+      Cellwrap.wrap(test_case[:input].as(String), test_case[:width].as(Int32), "").should eq(test_case[:expected])
     end
   end
 end

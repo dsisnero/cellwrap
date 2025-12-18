@@ -26,8 +26,8 @@ module Cellwrap
     # clusters as atomic units (emoji ZWJ sequences, combining marks, etc.).
     grapheme_end = Hash(Int32, Int32).new
     offset = 0
-    str.each_grapheme do |g|
-      gs = g.to_s
+    str.each_grapheme do |grapheme|
+      gs = grapheme.to_s
       size = gs.bytesize
       grapheme_end[offset] = offset + size
       offset += size
@@ -278,9 +278,9 @@ module Cellwrap
 
     def self.parse(seq : String) : Hyperlink?
       # OSC 8: ESC ] 8 ; params ; url ST|BEL
-      return nil unless seq.starts_with?("\e]8;")
+      return unless seq.starts_with?("\e]8;")
       payload = seq[3..]?
-      return nil unless payload
+      return unless payload
 
       # Strip terminator: BEL or ST(ESC \).
       if payload.ends_with?("\a")
@@ -288,12 +288,12 @@ module Cellwrap
       elsif payload.ends_with?("\e\\")
         inner = payload[0...-2]
       else
-        return nil
+        return
       end
 
       # inner: "8;params;url" (we already matched "8;" in prefix, but keep robust).
       parts = inner.split(';', 3)
-      return nil unless parts.size == 3
+      return unless parts.size == 3
       return Hyperlink.new("", "") if parts[2].empty?
       Hyperlink.new(parts[2], parts[1])
     end
@@ -376,13 +376,13 @@ module Cellwrap
     inner = seq[(open + 1)..-2]? || ""
     return [0] of Int32 if inner.empty?
 
-    inner.split(';').compact_map do |s|
-      s.to_i?
+    inner.split(';').compact_map do |segment|
+      segment.to_i?
     end
   end
 
   private def self.cell_width(str : String) : Int32
-    str.each_char.sum { |ch| cell_width_char(ch) }
+    str.each_char.sum { |char| cell_width_char(char) }
   end
 
   private def self.cell_width_char(ch : Char) : Int32

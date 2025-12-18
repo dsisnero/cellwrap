@@ -1,0 +1,31 @@
+# Ameba configuration for cellwrap
+# https://github.com/ameba-lang/ameba
+
+# Enable/disable rules
+Style/VerboseBlock:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false
+
+Style/UnlessElse:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# Customize rule parameters
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Performance/FlattenOnce:
+  Enabled: true
+
+# Exclude files/directories
+exclude:
+  - lib/
+  - .beads/
+  - .github/
