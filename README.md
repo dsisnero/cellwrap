@@ -123,6 +123,17 @@ ameba                        # Run linter
 crystal docs  # Generate API documentation
 ```
 
+### Running Examples
+
+See the [examples directory](examples/) for practical usage examples:
+
+```bash
+crystal examples/basic.cr      # Basic text wrapping
+crystal examples/ansi_colors.cr # ANSI color preservation
+crystal examples/unicode.cr    # Unicode and emoji handling
+crystal examples/advanced.cr   # Advanced features
+```
+
 ## Contributing
 
 1. Fork it (<https://github.com/dsisnero/cellwrap/fork>)
