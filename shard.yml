@@ -1,0 +1,14 @@
+name: cellwrap
+version: 0.1.0
+
+authors:
+  - Term2 contributors
+
+description: ANSI-aware word wrapping in terminal cell widths (inspired by charmbracelet/x/cellbuf.Wrap)
+
+dependencies:
+  uniwidth:
+    github: naqvis/uni_char_width
+
+crystal: ">= 1.18.2"
+license: MIT
